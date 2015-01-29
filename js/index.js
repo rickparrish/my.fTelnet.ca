@@ -1,44 +1,23 @@
-var AddressBook = [];
+// TODO Do away with onclick
+var AddressBook = [{
+    'ConnectionType': 'telnet',
+    'Description': 'fTelnet / GameSrv Demo Server',
+    'Emulation': 'ansi-bbs',
+    'Hostname': 'bbs.ftelnet.ca',
+    'Port': 1123,
+    'Proxy': false
+}];
 var EditIndex = -1;
 
 $(document).ready(function () {
-    LoadAddressBook();
+    if (localStorage['AddressBook']) {
+        AddressBook = JSON.parse(localStorage['AddressBook']);
+    }
     UpdateAddressBookTable();
 });
 
-function AddEntry() {
-    EditIndex = -1;
-
-    $('#txtDescription').val('');
-    $('#txtHostname').val('');
-    $('#txtPort').val('');
-    $('#cboConnectionType').val('telnet');
-    $('#cboEmulation').val('ansi-bbs');
-    $('#chkProxy').prop('checked', true);
-    
-    $('#AddEdit').modal();
-}
-
-function ConnectToMyAddressBookEntry(index) {
-    var Entry = AddressBook[index];
-    
-    var Proxy = '';
-    if (Entry.Proxy) {
-        if (localStorage['ProxyServer']) {
-            var HostPorts = localStorage['ProxyServer'].split(':');
-            Proxy += '&Proxy=proxy-' + HostPorts[0] + '.ftelnet.ca';
-            Proxy += '&ProxyPort=' + HostPorts[1];
-            Proxy += '&ProxyPortSecure=' + HostPorts[2];
-        } else {
-            Proxy = '&Proxy=proxy-us-ga.ftelnet.ca&ProxyPort=1123&ProxyPortSecure=11235';
-        }
-    }
-    
-    window.open('http://embed.ftelnet.ca/?Hostname=' + Entry.Hostname + '&Port=' + Entry.Port.toString() + Proxy + '&AutoConnect=true&ConnectionType=' + Entry.ConnectionType + '&Emulation=' + Entry.Emulation + '&TopButtons=true&VirtualKeyboard=on');
-}
-
-function ConnectToGlobalAddressBookEntry(name) {
-    switch (name) {
+$('a.GlobalConnect').click(function () {
+    switch ($(this).data('server')) {
         case 'fTelnet':
             window.open('http://embed.ftelnet.ca/?Hostname=bbs.ftelnet.ca&Port=1123&AutoConnect=true&ConnectionType=telnet&Emulation=ansi-bbs&TopButtons=true&VirtualKeyboard=on');
             break;
@@ -52,58 +31,47 @@ function ConnectToGlobalAddressBookEntry(name) {
             window.open('http://embed.ftelnet.ca/?Hostname=vert.synchro.net&Port=23&Proxy=proxy-us-ga.ftelnet.ca&ProxyPort=1123&ProxyPortSecure=11235&AutoConnect=true&ConnectionType=telnet&Emulation=ansi-bbs&TopButtons=true&VirtualKeyboard=on');
             break;
     }
-}
+});
 
-function DeleteEntry(index) {
-    var Entry = AddressBook[index];
-    if (confirm('Really delete ' + Entry.Description + '?')) { // TODO Use a model with yes/no instead of confirm()?
-        AddressBook.splice(index, 1);
-        localStorage['AddressBook'] = JSON.stringify(AddressBook);
-        UpdateAddressBookTable();
-    }
-}
+$('#hlAddEntry').click(function () {
+    EditIndex = -1;
 
-function EditEntry(index) {
-    EditIndex = index;
+    $('#pnlDescription').removeClass('has-error');
+    $('#pnlHostname').removeClass('has-error');
+    $('#pnlPort').removeClass('has-error');
+    $('#txtDescription').val('');
+    $('#txtHostname').val('');
+    $('#txtPort').val('');
+    $('#cboConnectionType').val('telnet');
+    $('#cboEmulation').val('ansi-bbs');
+    $('#chkProxy').prop('checked', true);
     
-    var Entry = AddressBook[index];
-
-    $('#txtDescription').val(Entry.Description);
-    $('#txtHostname').val(Entry.Hostname);
-    $('#txtPort').val(Entry.Port.toString());
-    $('#cboConnectionType').val(Entry.ConnectionType);
-    $('#cboEmulation').val(Entry.Emulation);
-    $('#chkProxy').prop('checked', Entry.Proxy);
-
     $('#AddEdit').modal();
-}
+});
 
-function ExportEntries() {
-    // TODO Combine settings and address book into a json string and save to file
-}
+$('#hlExportEntries').click(function () {
+    var Data = {};
 
-function ImportEntries() {
-    // TODO Read settings and address book from a json file
-}
-
-function LoadAddressBook() {
-    if (localStorage['AddressBook']) {
-        AddressBook = JSON.parse(localStorage['AddressBook']);
-    } else {
-        AddressBook.push({
-            'ConnectionType': 'telnet',
-            'Description': 'fTelnet / GameSrv Demo Server',
-            'Emulation': 'ansi-bbs',
-            'Hostname': 'bbs.ftelnet.ca',
-            'Port': 1123,
-            'Proxy': false
-        });
-        localStorage['AddressBook'] = JSON.stringify(AddressBook);
-        UpdateAddressBookTable();
+    if (localStorage['Settings']) {
+        Data.Settings = JSON.parse(localStorage['Settings']);
     }
-}
+    if (localStorage['AddressBook']) {
+        Data.AddressBook = JSON.parse(localStorage['AddressBook']);
+    }
+   
+    $(this).attr({
+        'download': 'my.ftelnet.ca.json',
+        'href': 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(Data)),
+        'target': '_blank'
+    }); 
+});
 
-function SaveEntry() {
+$('#hlImportEntries').click(function () {
+    // TODO Read settings and address book from a json file
+    alert('TODO Gotta add this feature');
+});
+
+$('#hlSaveEntry').click(function () {
     // Clean up text boxes
     $('#txtDescription').val($.trim($('#txtDescription').val()));
     $('#txtHostname').val($.trim($('#txtHostname').val()));
@@ -158,6 +126,52 @@ function SaveEntry() {
     UpdateAddressBookTable();
     
     $('#AddEdit').modal('hide');
+});
+
+function ConnectToMyAddressBookEntry(index) {
+    var Entry = AddressBook[index];
+    
+    var Proxy = '';
+    if (Entry.Proxy) {
+        if (localStorage['Settings']) {
+            var Settings = JSON.parse(localStorage['Settings']);
+            var HostPorts = Settings.ProxyServer.split(':');
+            Proxy += '&Proxy=proxy-' + HostPorts[0] + '.ftelnet.ca';
+            Proxy += '&ProxyPort=' + HostPorts[1];
+            Proxy += '&ProxyPortSecure=' + HostPorts[2];
+        } else {
+            Proxy = '&Proxy=proxy-us-ga.ftelnet.ca&ProxyPort=1123&ProxyPortSecure=11235';
+        }
+    }
+    
+    window.open('http://embed.ftelnet.ca/?Hostname=' + Entry.Hostname + '&Port=' + Entry.Port.toString() + Proxy + '&AutoConnect=true&ConnectionType=' + Entry.ConnectionType + '&Emulation=' + Entry.Emulation + '&TopButtons=true&VirtualKeyboard=on');
+}
+
+function DeleteEntry(index) {
+    var Entry = AddressBook[index];
+    if (confirm('Really delete ' + Entry.Description + '?')) { // TODO Use a model with yes/no instead of confirm()?
+        AddressBook.splice(index, 1);
+        localStorage['AddressBook'] = JSON.stringify(AddressBook);
+        UpdateAddressBookTable();
+    }
+}
+
+function EditEntry(index) {
+    EditIndex = index;
+    
+    var Entry = AddressBook[index];
+
+    $('#pnlDescription').removeClass('has-error');
+    $('#pnlHostname').removeClass('has-error');
+    $('#pnlPort').removeClass('has-error');
+    $('#txtDescription').val(Entry.Description);
+    $('#txtHostname').val(Entry.Hostname);
+    $('#txtPort').val(Entry.Port.toString());
+    $('#cboConnectionType').val(Entry.ConnectionType);
+    $('#cboEmulation').val(Entry.Emulation);
+    $('#chkProxy').prop('checked', Entry.Proxy);
+
+    $('#AddEdit').modal();
 }
 
 function UpdateAddressBookTable() {

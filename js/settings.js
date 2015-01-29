@@ -1,12 +1,16 @@
+var Settings = {
+    'ProxyServer': 'us-ga:1123:11235'
+};
+
 $(document).ready(function () {
-    if (localStorage['ProxyServer']) {
-        $('#cboProxyServer').val(localStorage['ProxyServer']);
-    } else {
-        $('#cboProxyServer').val('us-ga:1123:11235');
-        localStorage['ProxyServer'] = $('#cboProxyServer').val();
+    if (localStorage['Settings']) {
+        Settings = JSON.parse(localStorage['Settings']);
     }
+    
+    $('#cboProxyServer').val(Settings.ProxyServer);
 });
 
 $('#cboProxyServer').change(function () {
-    localStorage['ProxyServer'] = $('#cboProxyServer').val();
+    Settings.ProxyServer = $('#cboProxyServer').val();
+    localStorage['Settings'] = JSON.stringify(Settings);
 });
