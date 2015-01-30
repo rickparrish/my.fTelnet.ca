@@ -1,111 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
-    <title>My fTelnet</title>
-
-    <link href="css/bootstrap.Cyborg.min.css" rel="stylesheet"/>
-    <link href="css/site.css" rel="stylesheet"/>
-</head>
-<body>
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">My fTelnet</a>
+﻿<h2>Settings</h2>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Proxy Server
             </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="/"">Address Book</a></li>
-                    <li class="active"><a href="settings">Settings</a></li>
-                    <li><a href="help">Help</a></li>
-                    <li><a href="about">About</a></li>
-                    <li><a href="contact">Contact</a></li>
-                    <li><a href="donate"><strong class="text-warning">Donate</strong></a></li>
-                    <li><a href="embed"><strong class="text-success">Embed</strong></a></li>
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div>
-    </div>
-
-    <!-- Begin page content -->
-    <div class="container">
-        <h2>Settings</h2>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Proxy Server
-                    </div>
-                    <div class="panel-body">
-                        <p>
-                            fTelnet speaks <a href="http://en.wikipedia.org/wiki/WebSocket" target="_blank">WebSocket</a>, but most BBSes
-                            speak <a href="http://en.wikipedia.org/wiki/Telnet" target="_blank">Telnet</a>.  Having them talk directly to
-                            each other would be like an English person speaking to a French person.  So a 
-                            <a href="http://en.wikipedia.org/wiki/Proxy_server" target="_blank">proxy server</a> can be used to act as a
-                            translator of sorts, allowing fTelnet to connect to and communicate with BBSes it otherwise wouldn't be able to.
-                        </p>
-                        <p>
-                            Just select a proxy from the list below -- it doesn't have to be the one closest to you, but that'll usually give
-                            you the best performance.  And you don't always have to use this proxy -- if you know the BBS you're connecting to
-                            is capable of speaking WebSocket on its own, then you can un-check the appropriate box when you add the BBS to your 
-                            address book.
-                        </p>
-                        <select class="form-control" id="cboProxyServer">
-                            <optgroup label="Asia">
-                                <option value="jp:2710:2711">Japan (Tokyo): proxy-jp.ftelnet.ca</option>
-                            </optgroup>
-                            <optgroup label="Australia">
-                                <option value="au:8410:8411">Australia (Sydney): proxy-au.ftelnet.ca</option>
-                            </optgroup>
-                            <optgroup label="Europe">
-                                <option value="fr:18910:18911">France (Roubaix): proxy-fr.ftelnet.ca</option>
-                                <option value="nl:9010:9011">Netherlands (Rotterdam): proxy-nl.ftelnet.ca</option>
-                                <option value="uk:2910:2911">United Kingdon (Newcastle): proxy-uk.ftelnet.ca</option>
-                            </optgroup>
-                            <optgroup label="North America">
-                                <option value="us-ca:1123:11235">United States (California): proxy-us-ca.ftelnet.ca</option>
-                                <option value="us-fl:1123:11235">United States (Florida): proxy-us-fl.ftelnet.ca</option>
-                                <option value="us-ga:1123:11235">United States (Georgia): proxy-us-ga.ftelnet.ca</option>
-                                <option value="us-nj:1123:11235">United States (New Jersey): proxy-us-nj.ftelnet.ca</option>
-                            </optgroup>
-                        </select>
-                    </div>
-                </div>
+            <div class="panel-body">
+                <p>
+                    fTelnet speaks <a href="http://en.wikipedia.org/wiki/WebSocket" target="_blank">WebSocket</a>, but most BBSes
+                    speak <a href="http://en.wikipedia.org/wiki/Telnet" target="_blank">Telnet</a>.  Having them talk directly to
+                    each other would be like an English person speaking to a French person.  So a 
+                    <a href="http://en.wikipedia.org/wiki/Proxy_server" target="_blank">proxy server</a> can be used to act as a
+                    translator of sorts, allowing fTelnet to connect to and communicate with BBSes it otherwise wouldn't be able to.
+                </p>
+                <p>
+                    Just select a proxy from the list below -- it doesn't have to be the one closest to you, but that'll usually give
+                    you the best performance.  And you don't always have to use this proxy -- if you know the BBS you're connecting to
+                    is capable of speaking WebSocket on its own, then you can un-check the appropriate box when you add the BBS to your 
+                    address book.
+                </p>
+                <select class="form-control" id="cboProxyServer">
+                    <optgroup label="Asia">
+                        <option value="jp:2710:2711">Japan (Tokyo): proxy-jp.ftelnet.ca</option>
+                    </optgroup>
+                    <optgroup label="Australia">
+                        <option value="au:8410:8411">Australia (Sydney): proxy-au.ftelnet.ca</option>
+                    </optgroup>
+                    <optgroup label="Europe">
+                        <option value="fr:18910:18911">France (Roubaix): proxy-fr.ftelnet.ca</option>
+                        <option value="nl:9010:9011">Netherlands (Rotterdam): proxy-nl.ftelnet.ca</option>
+                        <option value="uk:2910:2911">United Kingdon (Newcastle): proxy-uk.ftelnet.ca</option>
+                    </optgroup>
+                    <optgroup label="North America">
+                        <option value="us-ca:1123:11235">United States (California): proxy-us-ca.ftelnet.ca</option>
+                        <option value="us-fl:1123:11235">United States (Florida): proxy-us-fl.ftelnet.ca</option>
+                        <option value="us-ga:1123:11235">United States (Georgia): proxy-us-ga.ftelnet.ca</option>
+                        <option value="us-nj:1123:11235">United States (New Jersey): proxy-us-nj.ftelnet.ca</option>
+                    </optgroup>
+                </select>
             </div>
         </div>
     </div>
-    
-    <div id="footer">
-        <div class="container">
-            <p class="text-muted">Copyright &copy; <a href="https://www.rickparrish.ca" target="_blank">Rick Parrish</a> of <a href="https://www.randm.ca" target="_blank">R&amp;M Software</a></p>
-        </div>
-    </div>
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <script>$.fn.modal || document.write('<script src="js/bootstrap.min.js"><\/script>')</script>
-
-    <script src="js/settings.js"></script>
-
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-4602017-8', 'auto');
-      ga('send', 'pageview');
-    </script>
-</body>
-</html>
+</div>

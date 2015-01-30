@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" ng-app="fTelnetApp">
 <head>
     <meta charset="utf-8">
@@ -47,61 +47,14 @@
                         Your browser is too old!
                     </div>
                     <div class="panel-body">
-                        This site requires Internet Explorer 9 or newer.  Or better yet, try <a href="https://www.mozilla.org/en-US/firefox/" target="_blank">Firefox</a> or <a href="https://www.google.com/chrome/browser/" target="_blank">Chrome</a>
+                        You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
                     </div>
                 </div>
             </div>
         </div>
         <![endif]-->
         
-        <div class="row">
-            <div class="col-sm-7">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        My Address Book
-                        <div class="pull-right"><a href="#" ng-click="Add();" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span> Add a new entry</a></div>
-                    </div>
-                    <div class="panel-body">
-                        <table class="table table-striped table-bordered table-hover" style="margin-bottom: 0;">
-                            <tbody ng-repeat="Server in MyServers" ng-cloak>
-                                <tr>
-                                    <td>
-                                        <a href="#" ng-click="Connect($index);">{{Server.Description}}</a>
-                                        <a href="#" ng-click="Delete($index);" class="btn btn-xs btn-danger pull-right"><span class="glyphicon glyphicon-remove"></span> Delete</a>
-                                        <a href="#" ng-click="Edit($index);" class="btn btn-xs btn-primary pull-right"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tfoot ng-show="!MyServers.length" ng-cloak>
-                                <tr><td>You have no address book entries.  Why not add one?</td></tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                    <div class="panel-footer">
-                        <a href="#" ng-click="Export();" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-export"></span> Export entries</a>
-                        &nbsp;
-                        <a href="#" ng-click="Import();" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-import"></span> Import entries</a>
-                        <input type="file" id="fuImport" style="display: none;" onchange="angular.element(this).scope().ImportFileSelected(this);" />
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-sm-5">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Global Address Book</div>
-                    <div class="panel-body">
-                        <table class="table table-striped table-bordered table-hover" style="margin-bottom: 0;" id="tblGlobalAddressBook">
-                            <tbody ng-repeat="Server in GlobalServers" ng-cloak>
-                                <tr><td><a href="http://embed.ftelnet.ca/?{{Server.Params}}" target="_blank">{{Server.Description}}</a></td></tr>
-                            </tbody>
-                            <tfoot ng-show="!GlobalServers.length" ng-cloak>
-                                <tr><td>Error loading global address book</td></tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div ng-view></div>
     </div>
     
     <div id="footer">
