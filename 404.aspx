@@ -73,6 +73,9 @@
             System.Net.Mail.MailMessage Msg = new System.Net.Mail.MailMessage("404@ftelnet.ca", "404@ftelnet.ca");
             Msg.Subject = "my.ftelnet.ca 404";
             Msg.Body = "404 on " + Request.Url.AbsoluteUri;
+            if (Request.UrlReferrer != null) {
+                Msg.Body += "\r\nReferrer: " + Request.UrlReferrer.ToString();
+            }
             Msg.IsBodyHtml = false;
 
             System.Net.Mail.SmtpClient Smtp = new System.Net.Mail.SmtpClient("localhost");
