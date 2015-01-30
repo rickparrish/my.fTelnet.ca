@@ -63,7 +63,7 @@
                     </div>
                     <div class="panel-body">
                         <table class="table table-striped table-bordered table-hover" style="margin-bottom: 0;">
-                            <tbody ng-repeat="Server in MyServers">
+                            <tbody ng-repeat="Server in MyServers" ng-cloak>
                                 <tr>
                                     <td>
                                         <a href="#" ng-click="Connect($index);">{{Server.Description}}</a>
@@ -72,7 +72,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                            <tfoot ng-show="!MyServers.length">
+                            <tfoot ng-show="!MyServers.length" ng-cloak>
                                 <tr><td>You have no address book entries.  Why not add one?</td></tr>
                             </tfoot>
                         </table>
@@ -91,10 +91,10 @@
                     <div class="panel-heading">Global Address Book</div>
                     <div class="panel-body">
                         <table class="table table-striped table-bordered table-hover" style="margin-bottom: 0;" id="tblGlobalAddressBook">
-                            <tbody ng-repeat="Server in GlobalServers">
+                            <tbody ng-repeat="Server in GlobalServers" ng-cloak>
                                 <tr><td><a href="http://embed.ftelnet.ca/?{{Server.Params}}" target="_blank">{{Server.Description}}</a></td></tr>
                             </tbody>
-                            <tfoot ng-show="!GlobalServers.length">
+                            <tfoot ng-show="!GlobalServers.length" ng-cloak>
                                 <tr><td>Error loading global address book</td></tr>
                             </tfoot>
                         </table>
@@ -104,6 +104,12 @@
         </div>
     </div>
     
+    <div id="footer">
+        <div class="container">
+            <p class="text-muted">Copyright &copy; <a href="https://www.rickparrish.ca" target="_blank">Rick Parrish</a> of <a href="https://www.randm.ca" target="_blank">R&amp;M Software</a></p>
+        </div>
+    </div>
+
     <!-- Modal -->
     <div class="modal fade" id="AddEdit" tabindex="-1" role="dialog" aria-labelledby="AddEditLabel" aria-hidden="true">
       <div class="modal-dialog">

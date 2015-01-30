@@ -49,6 +49,12 @@
         </div>
     </div>
     
+    <div id="footer">
+        <div class="container">
+            <p class="text-muted">Copyright &copy; <a href="https://www.rickparrish.ca" target="_blank">Rick Parrish</a> of <a href="https://www.randm.ca" target="_blank">R&amp;M Software</a></p>
+        </div>
+    </div>
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
