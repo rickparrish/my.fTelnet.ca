@@ -74,7 +74,10 @@
             Msg.Subject = "my.ftelnet.ca 404";
             Msg.Body = "404 on " + Request.Url.AbsoluteUri;
             if (Request.UrlReferrer != null) {
-                Msg.Body += "\r\nReferrer: " + Request.UrlReferrer.ToString();
+                Msg.Body += "\r\nUrlReferrer: " + Request.UrlReferrer.ToString();
+            }
+            if (!String.IsNullOrEmpty(Request.UserAgent)) {
+                Msg.Body += "\r\nUserAgent: " + Request.UserAgent;
             }
             Msg.IsBodyHtml = false;
 
