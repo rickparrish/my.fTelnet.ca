@@ -12,7 +12,7 @@
 </head>
 <body ng-controller="AddressBook">>
     <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="navbar">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -25,13 +25,13 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">Address Book</a></li>
-                    <li><a href="settings">Settings</a></li>
-                    <li><a href="help">Help</a></li>
-                    <li><a href="about">About</a></li>
-                    <li><a href="contact">Contact</a></li>
-                    <li><a href="donate"><strong class="text-warning">Donate</strong></a></li>
-                    <li><a href="embed"><strong class="text-success">Embed</strong></a></li>
+                    <li ng-class="{ active: isActive('/')}"><a href="/">Address Book</a></li>
+                    <li ng-class="{ active: isActive('/settings')}"><a href="/settings">Settings</a></li>
+                    <li ng-class="{ active: isActive('/help')}"><a href="/help">Help</a></li>
+                    <li ng-class="{ active: isActive('/about')}"><a href="/about">About</a></li>
+                    <li ng-class="{ active: isActive('/contact')}"><a href="/contact">Contact</a></li>
+                    <li ng-class="{ active: isActive('/donate')}"><a href="/donate"><strong class="text-warning">Donate</strong></a></li>
+                    <li ng-class="{ active: isActive('/embed')}"><a href="/embed"><strong class="text-success">Embed</strong></a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
