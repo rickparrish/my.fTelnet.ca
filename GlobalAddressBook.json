@@ -1,0 +1,18 @@
+[
+    {
+        "Description": "fTelnet / GameSrv Demo Server",
+        "Params": "Hostname=bbs.ftelnet.ca&Port=1123&AutoConnect=true&ConnectionType=telnet&Emulation=ansi-bbs&TopButtons=true&VirtualKeyboard=on"
+    },
+    {
+        "Description": "Vertrauen (Home of Synchronet)",
+        "Params": "Hostname=vert.synchro.net&Port=23&Proxy=proxy-us-ga.ftelnet.ca&ProxyPort=1123&ProxyPortSecure=11235&AutoConnect=true&ConnectionType=telnet&Emulation=ansi-bbs&TopButtons=true&VirtualKeyboard=on"
+    },
+    {
+        "Description": "LV-426 (A Commodore 64 BBS)",
+        "Params": "Hostname=lv426bbs.homenet.org&Port=23&Proxy=proxy-us-ga.ftelnet.ca&ProxyPort=1123&ProxyPortSecure=11235&AutoConnect=true&ConnectionType=telnet&Emulation=c64&TopButtons=true&VirtualKeyboard=on"
+    },
+    {
+        "Description": "Starwars Asciimation",
+        "Params": "Hostname=towel.blinkenlights.nl&Port=23&Proxy=proxy-us-ga.ftelnet.ca&ProxyPort=1123&ProxyPortSecure=11235&AutoConnect=true&ConnectionType=telnet&Emulation=ansi-bbs&TopButtons=false&VirtualKeyboard=off"
+    }
+]
