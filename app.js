@@ -33,7 +33,10 @@ fTelnetApp.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'views/Settings.html',
         controller: 'Settings'
     }).
+    when('/500', {
+        templateUrl: 'views/500.html'
+    }).
     otherwise({
-        redirectTo: '/'
+        templateUrl: '/404.aspx?hash=' + location.hash.replace('#', '')
     });
 }]);

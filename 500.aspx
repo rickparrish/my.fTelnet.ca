@@ -4,9 +4,9 @@
     protected void Page_Load(object sender, EventArgs e)
     {
         try {
-            System.Net.Mail.MailMessage Msg = new System.Net.Mail.MailMessage("404@ftelnet.ca", "404@ftelnet.ca");
-            Msg.Subject = "my.ftelnet.ca 404";
-            Msg.Body = "404 on " + Request.Url.AbsoluteUri;
+            System.Net.Mail.MailMessage Msg = new System.Net.Mail.MailMessage("500@ftelnet.ca", "500@ftelnet.ca");
+            Msg.Subject = "my.ftelnet.ca 500";
+            Msg.Body = "500 on " + Request.Url.AbsoluteUri;
             if (Request.UrlReferrer != null) {
                 Msg.Body += "\r\nUrlReferrer: " + Request.UrlReferrer.ToString();
             }
@@ -23,12 +23,6 @@
             // Ignore
         }
         
-        if (Request.Url.AbsoluteUri.ToLower().Contains("/views/") || Request.Url.AbsoluteUri.ToLower().Contains("?hash=")) {
-            // Requested an angular view, so return the 404 template
-            Response.TransmitFile(Server.MapPath(".\\Views\\404.html"));
-        } else {
-            // Requested a regular page, so redirect to the angular 404
-            Response.Redirect("/#/404");
-        }
+        Response.Redirect("/#/500");
     }
 </script>
