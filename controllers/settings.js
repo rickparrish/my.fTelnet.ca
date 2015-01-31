@@ -3,23 +3,16 @@
 var Settings = angular.module('Settings', []);
 
 Settings.controller('Settings', ['$scope', function ($scope) {
-    // TODO
+    $scope.Settings = {
+        'ProxyServer': 'us-ga:1123:11235'
+    };
+    if (localStorage['Settings']) {
+        $scope.Settings = JSON.parse(localStorage['Settings']);
+    }
+    $('#cboProxyServer').val($scope.Settings.ProxyServer);
+
+    $scope.ProxyChanged = function (elm) {
+        $scope.Settings.ProxyServer = $('#cboProxyServer').val();
+        localStorage['Settings'] = JSON.stringify($scope.Settings);
+    };
 }]);
-
-
-//var Settings = {
-//    'ProxyServer': 'us-ga:1123:11235'
-//};
-
-//$(document).ready(function () {
-//    if (localStorage['Settings']) {
-//        Settings = JSON.parse(localStorage['Settings']);
-//    }
-    
-//    $('#cboProxyServer').val(Settings.ProxyServer);
-//});
-
-//$('#cboProxyServer').change(function () {
-//    Settings.ProxyServer = $('#cboProxyServer').val();
-//    localStorage['Settings'] = JSON.stringify(Settings);
-//});

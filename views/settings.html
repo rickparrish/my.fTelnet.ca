@@ -19,7 +19,7 @@
                     is capable of speaking WebSocket on its own, then you can un-check the appropriate box when you add the BBS to your
                     address book.
                 </p>
-                <select class="form-control" id="cboProxyServer">
+                <select class="form-control" id="cboProxyServer" onchange="angular.element(this).scope().ProxyChanged(this);">
                     <optgroup label="Asia">
                         <option value="jp:2710:2711">Japan (Tokyo): proxy-jp.ftelnet.ca</option>
                     </optgroup>
