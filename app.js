@@ -11,26 +11,26 @@ var fTelnetApp = angular.module('fTelnetApp', [
 fTelnetApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
     when('/', {
-        templateUrl: 'views/addressbook.html',
+        templateUrl: 'views/AddressBook.html',
         controller: 'AddressBook'
     }).
-    when('/about', {
-        templateUrl: 'views/about.html'
+    when('/About', {
+        templateUrl: 'views/About.html'
     }).
-    when('/contact', {
-        templateUrl: 'views/contact.html'
+    when('/Contact', {
+        templateUrl: 'views/Contact.html'
     }).
-    when('/donate', {
-        templateUrl: 'views/donate.html'
+    when('/Donate', {
+        templateUrl: 'views/Donate.html'
     }).
-    when('/embed', {
-        templateUrl: 'views/embed.html'
+    when('/Embed', {
+        templateUrl: 'views/Embed.html'
     }).
-    when('/help', {
-        templateUrl: 'views/help.html'
+    when('/Help', {
+        templateUrl: 'views/Help.html'
     }).
-    when('/settings', {
-        templateUrl: 'views/settings.html',
+    when('/Settings', {
+        templateUrl: 'views/Settings.html',
         controller: 'Settings'
     }).
     otherwise({

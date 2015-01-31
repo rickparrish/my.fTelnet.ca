@@ -26,12 +26,12 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li ng-class="{ active: isActive('/')}"><a href="#/">Address Book</a></li>
-                    <li ng-class="{ active: isActive('/settings')}"><a href="#/settings">Settings</a></li>
-                    <li ng-class="{ active: isActive('/help')}"><a href="#/help">Help</a></li>
-                    <li ng-class="{ active: isActive('/about')}"><a href="#/about">About</a></li>
-                    <li ng-class="{ active: isActive('/contact')}"><a href="#/contact">Contact</a></li>
-                    <li ng-class="{ active: isActive('/donate')}"><a href="#/donate"><strong class="text-warning">Donate</strong></a></li>
-                    <li ng-class="{ active: isActive('/embed')}"><a href="#/embed"><strong class="text-success">Embed</strong></a></li>
+                    <li ng-class="{ active: isActive('/Settings')}"><a href="#/Settings">Settings</a></li>
+                    <li ng-class="{ active: isActive('/Help')}"><a href="#/Help">Help</a></li>
+                    <li ng-class="{ active: isActive('/About')}"><a href="#/About">About</a></li>
+                    <li ng-class="{ active: isActive('/Contact')}"><a href="#/Contact">Contact</a></li>
+                    <li ng-class="{ active: isActive('/Donate')}"><a href="#/Donate"><strong class="text-warning">Donate</strong></a></li>
+                    <li ng-class="{ active: isActive('/Embed')}"><a href="#/Embed"><strong class="text-success">Embed</strong></a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -63,55 +63,6 @@
         </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="AddEdit" tabindex="-1" role="dialog" aria-labelledby="AddEditLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="AddEditLabel">Add/Edit an address book entry</h4>
-          </div>
-          <div class="modal-body">
-            <div class="form-group col-xs-12" id="pnlDescription">
-              <label for="txtDescription" class="control-label">Description</label>
-              <input type="text" id="txtDescription" class="form-control">
-            </div>
-            <div class="form-group col-sm-6" id="pnlHostname">
-              <label for="txtHostname" class="control-label">Hostname</label>
-              <input type="text" placeholder="Hostname or IP address" id="txtHostname" class="form-control">
-            </div>
-            <div class="form-group col-sm-6" id="pnlPort">
-              <label for="txtPort" class="control-label">Port</label>
-              <input type="text" placeholder="Port" id="txtPort" class="form-control">
-            </div>
-            <div class="form-group col-sm-6">
-              <label for="cboConnectionType" class="control-label">Connection Type</label>
-              <select id="cboConnectionType" class="form-control">
-                <option value="telnet">Telnet</option>
-              </select>
-            </div>
-            <div class="form-group col-sm-6">
-              <label for="cboEmulation" class="control-label">Emulation</label>
-              <select id="cboEmulation" class="form-control">
-                  <option selected="selected" value="ansi-bbs">ansi-bbs</option>
-                  <option value="c64">Commodore 64</option>
-                  <!--<option value="RIP">RIP</option>-->
-              </select>
-            </div>
-            <div class="checkbox col-xs-12" style="margin-top: 0; margin-bottom: 25px;">
-              <label>
-                <input type="checkbox" id="chkProxy" checked="checked"> Connect via proxy?  (See the Settings page for more info)
-              </label>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <a href="#" ng-click="Save();" class="btn btn-success pull-left"><span class="glyphicon glyphicon-floppy-saved"></span> Save</a>
-            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-remove"></span> Cancel</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
