@@ -1,9 +1,9 @@
 ﻿'use strict';
 
-var navbar = angular.module('navbar', []);
+var NavBar = angular.module('NavBar', []);
 
-navbar.controller('navbar', '$scope', function ($scope) {
+NavBar.controller('NavBar', ['$scope', '$location', function ($scope, $location) {
     $scope.isActive = function (viewLocation) { 
         return viewLocation === $location.path();
     };
-});
+}]);

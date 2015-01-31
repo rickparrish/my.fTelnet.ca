@@ -1,5 +1,5 @@
 ﻿<h2>Settings</h2>
-<div class="row">
+<div class="row" ng-controller="Settings">
     <div class="col-sm-6">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -9,14 +9,14 @@
                 <p>
                     fTelnet speaks <a href="http://en.wikipedia.org/wiki/WebSocket" target="_blank">WebSocket</a>, but most BBSes
                     speak <a href="http://en.wikipedia.org/wiki/Telnet" target="_blank">Telnet</a>.  Having them talk directly to
-                    each other would be like an English person speaking to a French person.  So a 
+                    each other would be like an English person speaking to a French person.  So a
                     <a href="http://en.wikipedia.org/wiki/Proxy_server" target="_blank">proxy server</a> can be used to act as a
                     translator of sorts, allowing fTelnet to connect to and communicate with BBSes it otherwise wouldn't be able to.
                 </p>
                 <p>
                     Just select a proxy from the list below -- it doesn't have to be the one closest to you, but that'll usually give
                     you the best performance.  And you don't always have to use this proxy -- if you know the BBS you're connecting to
-                    is capable of speaking WebSocket on its own, then you can un-check the appropriate box when you add the BBS to your 
+                    is capable of speaking WebSocket on its own, then you can un-check the appropriate box when you add the BBS to your
                     address book.
                 </p>
                 <select class="form-control" id="cboProxyServer">

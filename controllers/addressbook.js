@@ -1,10 +1,12 @@
-var fTelnetApp = angular.module('fTelnetApp', []);
+'use strict';
 
-fTelnetApp.controller('AddressBook', ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
+var AddressBook = angular.module('AddressBook', []);
+
+AddressBook.controller('AddressBook', ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
     $scope.EditIndex = -1;
     
     $scope.GlobalServers = [];
-    $http.get('GlobalAddressBook.json').success(function(data) {
+    $http.get('models/GlobalAddressBook.json').success(function(data) {
         $scope.GlobalServers = data;
     });
 
