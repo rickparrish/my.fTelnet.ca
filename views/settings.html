@@ -19,25 +19,8 @@
                     is capable of speaking WebSocket on its own, then you can un-check the appropriate box when you add the BBS to your
                     address book.
                 </p>
-                <select class="form-control" id="cboProxyServer" onchange="angular.element(this).scope().ProxyChanged(this);">
-                    <optgroup label="Asia">
-                        <option value="jp:2710:2711">Japan (Tokyo): proxy-jp.ftelnet.ca</option>
-                    </optgroup>
-                    <optgroup label="Australia">
-                        <option value="au:8410:8411">Australia (Sydney): proxy-au.ftelnet.ca</option>
-                    </optgroup>
-                    <optgroup label="Europe">
-                        <option value="fr:18910:18911">France (Roubaix): proxy-fr.ftelnet.ca</option>
-                        <option value="nl:9010:9011">Netherlands (Rotterdam): proxy-nl.ftelnet.ca</option>
-                        <option value="uk:2910:2911">United Kingdon (Newcastle): proxy-uk.ftelnet.ca</option>
-                    </optgroup>
-                    <optgroup label="North America">
-                        <option value="us-ca:1123:11235">United States (California): proxy-us-ca.ftelnet.ca</option>
-                        <option value="us-fl:1123:11235">United States (Florida): proxy-us-fl.ftelnet.ca</option>
-                        <option value="us-ga:1123:11235">United States (Georgia): proxy-us-ga.ftelnet.ca</option>
-                        <option value="us-nj:1123:11235">United States (New Jersey): proxy-us-nj.ftelnet.ca</option>
-                    </optgroup>
-                </select>
+                
+                <select class="form-control" ng-change="ProxyChanged();" ng-model="Settings.ProxyServer" ng-options="Server.Hostname + ':' + Server.WsPort + ':' + Server.WssPort as Server.Country + ' (' + Server.Location + ')' group by Server.Continent for Server in ProxyServers"></select>
             </div>
         </div>
     </div>

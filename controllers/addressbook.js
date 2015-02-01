@@ -16,7 +16,7 @@ AddressBook.controller('AddressBook', ['$scope', '$filter', '$http', function ($
     }
     
     $scope.Settings = {
-        'ProxyServer': 'us-ga:1123:11235'
+        'ProxyServer': 'proxy-us-ga.ftelnet.ca:1123:11235'
     };
     if (localStorage['Settings']) {
         $scope.Settings = JSON.parse(localStorage['Settings']);
@@ -46,7 +46,7 @@ AddressBook.controller('AddressBook', ['$scope', '$filter', '$http', function ($
         var Proxy = '';
         if (Entry.Proxy) {
             var HostPorts = $scope.Settings.ProxyServer.split(':');
-            Proxy += '&Proxy=proxy-' + HostPorts[0] + '.ftelnet.ca';
+            Proxy += '&Proxy=' + HostPorts[0];
             Proxy += '&ProxyPort=' + HostPorts[1];
             Proxy += '&ProxyPortSecure=' + HostPorts[2];
         }

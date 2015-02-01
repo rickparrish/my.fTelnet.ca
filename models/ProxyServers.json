@@ -1,0 +1,74 @@
+[
+    {
+        "Continent": "Asia",
+        "Country": "Japan",
+        "Location": "Tokyo",
+        "Hostname": "proxy-jp.ftelnet.ca",
+        "WsPort": 2710,
+        "WssPort": 2711
+    },
+    {
+        "Continent": "Australia",
+        "Country": "Australia",
+        "Location": "Sydney",
+        "Hostname": "proxy-au.ftelnet.ca",
+        "WsPort": 8410,
+        "WssPort": 8411
+    },
+    {
+        "Continent": "Europe",
+        "Country": "France",
+        "Location": "Roubaix",
+        "Hostname": "proxy-fr.ftelnet.ca",
+        "WsPort": 18910,
+        "WssPort": 18911
+    },
+    {
+        "Continent": "Europe",
+        "Country": "Netherlands",
+        "Location": "Rotterdam",
+        "Hostname": "proxy-nl.ftelnet.ca",
+        "WsPort": 9010,
+        "WssPort": 9011
+    },
+    {
+        "Continent": "Europe",
+        "Country": "United Kingdon",
+        "Location": "Newcastle",
+        "Hostname": "proxy-uk.ftelnet.ca",
+        "WsPort": 2910,
+        "WssPort": 2911
+    },
+    {
+        "Continent": "North America",
+        "Country": "United States",
+        "Location": "California",
+        "Hostname": "proxy-us-ca.ftelnet.ca",
+        "WsPort": 1123,
+        "WssPort": 11235
+    },
+    {
+        "Continent": "North America",
+        "Country": "United States",
+        "Location": "Florida",
+        "Hostname": "proxy-us-fl.ftelnet.ca",
+        "WsPort": 1123,
+        "WssPort": 11235
+    },
+    {
+        "Continent": "North America",
+        "Country": "United States",
+        "Location": "Georgia",
+        "Hostname": "proxy-us-ga.ftelnet.ca",
+        "WsPort": 1123,
+        "WssPort": 11235
+    },
+    {
+        "Continent": "North America",
+        "Country": "United States",
+        "Location": "New Jersey",
+        "Hostname": "proxy-us-nj.ftelnet.ca",
+        "WsPort": 1123,
+        "WssPort": 11235
+    }
+]

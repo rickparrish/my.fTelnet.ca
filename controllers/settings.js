@@ -2,17 +2,20 @@
 
 var Settings = angular.module('Settings', []);
 
-Settings.controller('Settings', ['$scope', function ($scope) {
+Settings.controller('Settings', ['$scope', '$http', function ($scope, $http) {
     $scope.Settings = {
-        'ProxyServer': 'us-ga:1123:11235'
+        'ProxyServer': 'proxy-us-ga.ftelnet.ca:1123:11235'
     };
     if (localStorage['Settings']) {
         $scope.Settings = JSON.parse(localStorage['Settings']);
     }
-    $('#cboProxyServer').val($scope.Settings.ProxyServer);
 
-    $scope.ProxyChanged = function (elm) {
-        $scope.Settings.ProxyServer = $('#cboProxyServer').val();
+    $scope.ProxyServers = [];
+    $http.get('models/ProxyServers.json').success(function(data) {
+        $scope.ProxyServers = data;
+    });
+    
+    $scope.ProxyChanged = function() {
         localStorage['Settings'] = JSON.stringify($scope.Settings);
-    };
+    }
 }]);
