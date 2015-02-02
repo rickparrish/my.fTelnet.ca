@@ -20,7 +20,14 @@
                     address book.
                 </p>
                 
-                <select class="form-control" ng-change="ProxyChanged();" ng-model="Settings.ProxyServer" ng-options="Server.Hostname + ':' + Server.WsPort + ':' + Server.WssPort as Server.Country + ' (' + Server.Location + ')' group by Server.Continent for Server in ProxyServers"></select>
+                <p>
+                    <select class="form-control" ng-change="ProxyChanged();" ng-model="Settings.ProxyServer" ng-options="Server.Hostname + ':' + Server.WsPort + ':' + Server.WssPort as Server.Country + ' (' + Server.Location + ')' group by Server.Continent for Server in ProxyServers"></select>
+                </p>
+                
+                <p class="small">
+                    (<a href="http://proxy.ftelnet.ca" target="_blank">proxy.ftelnet.ca</a> hosts a real-time status page for the proxy
+                    servers, feel free to check it out and see the day/week/month uptime report for each server.)
+                </p>
             </div>
         </div>
     </div>

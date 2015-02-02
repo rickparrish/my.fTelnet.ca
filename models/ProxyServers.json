@@ -5,7 +5,8 @@
         "Location": "Tokyo",
         "Hostname": "proxy-jp.ftelnet.ca",
         "WsPort": 2710,
-        "WssPort": 2711
+        "WssPort": 2711,
+        "UptimeRobotApiKey": "m776349111-56db02211a796732e0ba1ace"
     },
     {
         "Continent": "Australia",
@@ -13,7 +14,8 @@
         "Location": "Sydney",
         "Hostname": "proxy-au.ftelnet.ca",
         "WsPort": 8410,
-        "WssPort": 8411
+        "WssPort": 8411,
+        "UptimeRobotApiKey": "m776347940-41118af8e6b6d24aefec52bc"
     },
     {
         "Continent": "Europe",
@@ -21,7 +23,8 @@
         "Location": "Roubaix",
         "Hostname": "proxy-fr.ftelnet.ca",
         "WsPort": 18910,
-        "WssPort": 18911
+        "WssPort": 18911,
+        "UptimeRobotApiKey": "m776371011-a54c8483692d359721bddc99"
     },
     {
         "Continent": "Europe",
@@ -29,7 +32,8 @@
         "Location": "Rotterdam",
         "Hostname": "proxy-nl.ftelnet.ca",
         "WsPort": 9010,
-        "WssPort": 9011
+        "WssPort": 9011,
+        "UptimeRobotApiKey": "m776349071-e70225c0d00b7b2079dfff17"
     },
     {
         "Continent": "Europe",
@@ -37,7 +41,8 @@
         "Location": "Newcastle",
         "Hostname": "proxy-uk.ftelnet.ca",
         "WsPort": 2910,
-        "WssPort": 2911
+        "WssPort": 2911,
+        "UptimeRobotApiKey": "m776349023-b2184c738c42bf6d621fc47f"
     },
     {
         "Continent": "North America",
@@ -45,7 +50,8 @@
         "Location": "California",
         "Hostname": "proxy-us-ca.ftelnet.ca",
         "WsPort": 1123,
-        "WssPort": 11235
+        "WssPort": 11235,
+        "UptimeRobotApiKey": "m776370843-8da1cb0ff04d865ce2dc63aa"
     },
     {
         "Continent": "North America",
@@ -53,7 +59,8 @@
         "Location": "Florida",
         "Hostname": "proxy-us-fl.ftelnet.ca",
         "WsPort": 1123,
-        "WssPort": 11235
+        "WssPort": 11235,
+        "UptimeRobotApiKey": "m776370842-888289014c6fc30fd2c08f74"
     },
     {
         "Continent": "North America",
@@ -61,7 +68,8 @@
         "Location": "Georgia",
         "Hostname": "proxy-us-ga.ftelnet.ca",
         "WsPort": 1123,
-        "WssPort": 11235
+        "WssPort": 11235,
+        "UptimeRobotApiKey": "m776347937-88162d8a16b2ca0001b91bd8"
     },
     {
         "Continent": "North America",
@@ -69,6 +77,7 @@
         "Location": "New Jersey",
         "Hostname": "proxy-us-nj.ftelnet.ca",
         "WsPort": 1123,
-        "WssPort": 11235
+        "WssPort": 11235,
+        "UptimeRobotApiKey": "m776395380-cb2c7e85b705c5995a31bd21"
     }
 ]
