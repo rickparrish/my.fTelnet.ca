@@ -2,7 +2,7 @@
 
 var AddressBook = angular.module('AddressBook', []);
 
-AddressBook.controller('AddressBook', ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
+AddressBook.controller('AddressBook', ['$scope', '$filter', '$http', 'LocalStorage', function ($scope, $filter, $http, LocalStorage) {
     $scope.EditIndex = -1;
     
     $scope.GlobalServers = [];
@@ -10,24 +10,9 @@ AddressBook.controller('AddressBook', ['$scope', '$filter', '$http', function ($
         $scope.GlobalServers = data;
     });
 
-    $scope.MyServers = [];
-    if (localStorage['MyServers']) {
-        $scope.MyServers = JSON.parse(localStorage['MyServers']);
-    }
+    $scope.MyServers = LocalStorage.GetMyServers();
     
-    $scope.Settings = {
-        'ProxyServer': 'proxy-us-ga.ftelnet.ca:1123:11235'
-    };
-    if (localStorage['Settings']) {
-        $scope.Settings = JSON.parse(localStorage['Settings']);
-
-        // Old ProxyServer setting was only a piece of the domain, is 'us-ga:1123:11235' instead of 'proxy-us-ga.ftelnet.ca:1123:11235'
-        if ($scope.Settings.ProxyServer.indexOf('.') == -1) {
-            var HostPorts = $scope.Settings.ProxyServer.split(':');
-            $scope.Settings.ProxyServer = 'proxy-' + HostPorts[0] + '.ftelnet.ca:' + HostPorts[1] + ':' + HostPorts[2];
-            localStorage['Settings'] = JSON.stringify($scope.Settings);
-        }
-    }
+    $scope.Settings = LocalStorage.GetSettings();
     
     // Load the "Add new entry" form and clear it
     $scope.Add = function() {
@@ -65,7 +50,7 @@ AddressBook.controller('AddressBook', ['$scope', '$filter', '$http', function ($
         var Entry = $scope.MyServers[index];        
         if (confirm('Really delete "' + Entry.Description + '"?')) { // TODO Use a model with yes/no instead of confirm()?
             $scope.MyServers.splice(index, 1);
-            localStorage['MyServers'] = JSON.stringify($scope.MyServers);
+            LocalStorage.SetMyServers($scope.MyServers);
         }
     };
     
@@ -116,10 +101,10 @@ AddressBook.controller('AddressBook', ['$scope', '$filter', '$http', function ($
                     
                     $scope.MyServers = Data.MyServers;
                     $scope.MyServers = $filter('orderBy')($scope.MyServers, 'Description', false);
-                    localStorage['MyServers'] = JSON.stringify($scope.MyServers);
+                    LocalStorage.SetMyServers($scope.MyServers);
                     
                     $scope.Settings = Data.Settings;
-                    localStorage['Settings'] = JSON.stringify($scope.Settings);
+                    LocalStorage.SetSettings($scope.Settings);
 
                     $scope.$apply();
                 } catch (ex) {
@@ -185,7 +170,7 @@ AddressBook.controller('AddressBook', ['$scope', '$filter', '$http', function ($
 
         // Sort and persist
         $scope.MyServers = $filter('orderBy')($scope.MyServers, 'Description', false);
-        localStorage['MyServers'] = JSON.stringify($scope.MyServers);
+        LocalStorage.SetMyServers($scope.MyServers);
         
         $('#AddEdit').modal('hide');
     };

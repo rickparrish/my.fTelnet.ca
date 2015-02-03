@@ -4,6 +4,7 @@ var fTelnetApp = angular.module('fTelnetApp', [
     'ngRoute',
 
     'AddressBook',
+    'LocalStorage',
     'NavBar',
     'Settings'
 ]);

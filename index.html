@@ -39,22 +39,25 @@
 
     <!-- Begin page content -->
     <div class="container">
-        <!--[if lt IE 9]>
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="panel panel-danger">
-                    <div class="panel-heading">
-                        Your browser is too old!
-                    </div>
-                    <div class="panel-body">
-                        You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+        <div ng-view>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            my.ftelnet.ca is now loading...
+                        </div>
+                        <div class="panel-body">
+                            <p>my.ftelnet.ca is now loading.  If this message doesn't go away, then:</p>
+                            <ol>
+                                <li>My server and/or your connection may be slow, try waiting longer.</li>
+                                <li>I might have screwed something up, try again in a few minutes.</li>
+                                <li>Your browser might not support the features used by this site.  Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</li>
+                            </ol>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <![endif]-->
-        
-        <div ng-view></div>
     </div>
     
     <div id="footer">
@@ -82,9 +85,10 @@
     <script src="js/FileSaver.min.js"></script>
 
     <script src="app.js"></script>
-    <script src="controllers/addressbook.js"></script>
-    <script src="controllers/navbar.js"></script>
-    <script src="controllers/settings.js"></script>
+    <script src="controllers/AddressBook.js"></script>
+    <script src="controllers/NavBar.js"></script>
+    <script src="controllers/Settings.js"></script>
+    <script src="services/LocalStorage.js"></script>
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
