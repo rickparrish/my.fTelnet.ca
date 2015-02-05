@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" ng-app="fTelnetApp">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +12,7 @@
 </head>
 <body>
     <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="NavBar">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -21,17 +21,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#/">My fTelnet</a>
+                <a class="navbar-brand" href="/">My fTelnet</a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li ng-class="{ active: isActive('/')}"><a href="#/">Address Book</a></li>
-                    <li ng-class="{ active: isActive('/Settings')}"><a href="#/Settings">Settings</a></li>
-                    <li ng-class="{ active: isActive('/Help')}"><a href="#/Help">Help</a></li>
-                    <li ng-class="{ active: isActive('/About')}"><a href="#/About">About</a></li>
-                    <li ng-class="{ active: isActive('/Contact')}"><a href="#/Contact">Contact</a></li>
-                    <li ng-class="{ active: isActive('/Donate')}"><a href="#/Donate"><strong class="text-warning">Donate</strong></a></li>
-                    <li ng-class="{ active: isActive('/Embed')}"><a href="#/Embed"><strong class="text-success">Embed</strong></a></li>
+                    <li class="active"><a href="/">Address Book</a></li>
+                    <li><a href="/settings">Settings</a></li>
+                    <li><a href="/help">Help</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/donate"><strong class="text-warning">Donate</strong></a></li>
+                    <li><a href="/embed"><strong class="text-success">Embed</strong></a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -39,21 +39,41 @@
 
     <!-- Begin page content -->
     <div class="container">
-        <div ng-view>
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            my.ftelnet.ca is now loading...
-                        </div>
-                        <div class="panel-body">
-                            <p>my.ftelnet.ca is now loading.  If this message doesn't go away, then:</p>
-                            <ol>
-                                <li>My server and/or your connection may be slow, try waiting longer.</li>
-                                <li>I might have screwed something up, try again in a few minutes.</li>
-                                <li>Your browser might not support the features used by this site.  Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</li>
-                            </ol>
-                        </div>
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        My Address Book
+                        <div class="pull-right"><a id="hlAddEntry" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span> Add a new entry</a></div>
+                    </div>
+                    <div class="panel-body">
+                        <table id="tblMyServers" class="table table-striped table-bordered table-hover" style="margin-bottom: 0;">
+                            <tbody>
+                                <!-- Bound in js/addressbook.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        <a id="hlExportEntries" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-export"></span> Export entries</a>
+                        &nbsp;
+                        <a id="hlImportEntries" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-import"></span> Import entries</a>
+                        <input type="file" id="fuImport" style="display: none;" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-5">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Global Address Book</div>
+                    <div class="panel-body">
+                        <table class="table table-striped table-bordered table-hover" style="margin-bottom: 0;">
+                            <tbody>
+                                <tr><td><a href="http://embed.ftelnet.ca/?Hostname=bbs.ftelnet.ca&Port=1123&AutoConnect=true&ConnectionType=telnet&Emulation=ansi-bbs&TopButtons=true&VirtualKeyboard=on" target="_blank">fTelnet / GameSrv Demo Server</a></td></tr>
+                                <tr><td><a href="http://embed.ftelnet.ca/?Hostname=vert.synchro.net&Port=23&Proxy=proxy-us-ga.ftelnet.ca&ProxyPort=1123&ProxyPortSecure=11235&AutoConnect=true&ConnectionType=telnet&Emulation=ansi-bbs&TopButtons=true&VirtualKeyboard=on" target="_blank">Vertrauen</a> (Home of <a href="http://www.synchro.net" target="_blank">Synchronet</a>)</td></tr>
+                                <tr><td><a href="http://embed.ftelnet.ca/?Hostname=lv426bbs.homenet.org&Port=23&Proxy=proxy-us-ga.ftelnet.ca&ProxyPort=1123&ProxyPortSecure=11235&AutoConnect=true&ConnectionType=telnet&Emulation=c64&TopButtons=true&VirtualKeyboard=on" target="_blank">LV-426</a> (A Commodore 64 BBS)</td></tr>
+                                <tr><td><a href="http://embed.ftelnet.ca/?Hostname=towel.blinkenlights.nl&Port=23&Proxy=proxy-us-ga.ftelnet.ca&ProxyPort=1123&ProxyPortSecure=11235&AutoConnect=true&ConnectionType=telnet&Emulation=ansi-bbs&TopButtons=false&VirtualKeyboard=off" target="_blank">Starwars Asciimation</a> (<a href="http://www.blinkenlights.nl/services.html#starwars" target="_blank">Homepage</a>)</td></tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -66,29 +86,61 @@
         </div>
     </div>
 
+    <div class="modal fade" id="AddEdit" tabindex="-1" role="dialog" aria-labelledby="AddEditLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="AddEditLabel">Add/Edit an address book entry</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group col-xs-12" id="pnlDescription">
+                        <label for="txtDescription" class="control-label">Description</label>
+                        <input type="text" placeholder="Description" id="txtDescription" class="form-control">
+                    </div>
+                    <div class="form-group col-sm-6" id="pnlHostname">
+                        <label for="txtHostname" class="control-label">Hostname</label>
+                        <input type="text" placeholder="Hostname or IP address" id="txtHostname" class="form-control">
+                    </div>
+                    <div class="form-group col-sm-6" id="pnlPort">
+                        <label for="txtPort" class="control-label">Port</label>
+                        <input type="text" placeholder="Port" id="txtPort" class="form-control">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="cboConnectionType" class="control-label">Connection Type</label>
+                        <select id="cboConnectionType" class="form-control">
+                            <option value="telnet">Telnet</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="cboEmulation" class="control-label">Emulation</label>
+                        <select id="cboEmulation" class="form-control">
+                            <option selected="selected" value="ansi-bbs">ansi-bbs</option>
+                            <option value="c64">Commodore 64</option>
+                            <!--<option value="RIP">RIP</option>-->
+                        </select>
+                    </div>
+                    <div class="checkbox col-xs-12" style="margin-top: 0; margin-bottom: 25px;">
+                        <label>
+                            <input type="checkbox" id="chkProxy" checked="checked"> Connect via proxy?  (See the Settings page for more info)
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a id="hlSaveEntry" class="btn btn-success pull-left"><span class="glyphicon glyphicon-floppy-saved"></span> Save</a>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-remove"></span> Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script>$.fn.modal || document.write('<script src="js/bootstrap.min.js"><\/script>')</script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
-    <script>window.angular || document.write('<script src="js/angular.min.js"><\/script>');</script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular-route.min.js"></script>
-    <script>
-        try {
-            angular.module('ngRoute');
-        } catch (ex) {
-            document.write('<script src="js/angular-route.min.js"><\/script>');
-        }
-    </script>
 
-    <script src="js/Blob.js"></script>
-    <script src="js/FileSaver.min.js"></script>
-
-    <script src="app.js"></script>
-    <script src="controllers/AddressBook.js"></script>
-    <script src="controllers/NavBar.js"></script>
-    <script src="controllers/Settings.js"></script>
-    <script src="services/LocalStorage.js"></script>
+    <script src="js/localstorage.js"></script>
+    <script src="js/addressbook.js"></script>
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

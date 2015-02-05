@@ -1,31 +1,4 @@
-﻿<%@ Language=C# %>
-
-<script runat="server" language="C#">
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        try {
-            System.Net.Mail.MailMessage Msg = new System.Net.Mail.MailMessage("404@ftelnet.ca", "404@ftelnet.ca");
-            Msg.Subject = "my.ftelnet.ca 404";
-            Msg.Body = "404 on " + Request.Url.AbsoluteUri;
-            if (Request.UrlReferrer != null) {
-                Msg.Body += "\r\nUrlReferrer: " + Request.UrlReferrer.ToString();
-            }
-            if (!String.IsNullOrEmpty(Request.UserAgent)) {
-                Msg.Body += "\r\nUserAgent: " + Request.UserAgent;
-            }
-            Msg.IsBodyHtml = false;
-
-            System.Net.Mail.SmtpClient Smtp = new System.Net.Mail.SmtpClient("localhost");
-            Smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
-            Smtp.Timeout = 10000;
-            Smtp.Send(Msg);
-        } catch {
-            // Ignore
-        }
-    }
-</script>
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -54,11 +27,11 @@
                 <ul class="nav navbar-nav">
                     <li><a href="/">Address Book</a></li>
                     <li><a href="/settings">Settings</a></li>
-                    <li class="active"><a href="/help">Help</a></li>
+                    <li><a href="/help">Help</a></li>
                     <li><a href="/about">About</a></li>
                     <li><a href="/contact">Contact</a></li>
                     <li><a href="/donate"><strong class="text-warning">Donate</strong></a></li>
-                    <li><a href="/embed"><strong class="text-success">Embed</strong></a></li>
+                    <li class="active"><a href="/embed"><strong class="text-success">Embed</strong></a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -66,15 +39,15 @@
 
     <!-- Begin page content -->
     <div class="container">
+        <h2>Embed</h2>
         <div class="row">
             <div class="col-sm-10 col-md-8 col-lg-6">
-                <div class="panel panel-danger">
+                <div class="panel panel-default">
                     <div class="panel-heading">
-                        Error Four Oh Four
+                        Embed
                     </div>
                     <div class="panel-body">
-                        Sorry, whatever you were looking for couldn't be found!<br />
-                        Please try a different link from the menu above.
+                        TODO Add embed here
                     </div>
                 </div>
             </div>
