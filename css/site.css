@@ -23,15 +23,3 @@ body > .container {
 #footer .text-muted {
   margin: 20px 0;
 }
-
-
-
-
-
-[ng-click], [data-ng-click], [x-ng-click] {
-    cursor: pointer;
-}
-
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
-}
