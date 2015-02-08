@@ -19,6 +19,8 @@
             Smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
             Smtp.Timeout = 10000;
             Smtp.Send(Msg);
+
+            Response.StatusCode = 404;
         } catch {
             // Ignore
         }
