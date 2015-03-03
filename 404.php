@@ -1,33 +1,4 @@
-﻿<%@ Language=C# %>
-
-<script runat="server" language="C#">
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        try {
-            System.Net.Mail.MailMessage Msg = new System.Net.Mail.MailMessage("404@ftelnet.ca", "404@ftelnet.ca");
-            Msg.Subject = "my.ftelnet.ca 404";
-            Msg.Body = "404 on " + Request.Url.AbsoluteUri;
-            if (Request.UrlReferrer != null) {
-                Msg.Body += "\r\nUrlReferrer: " + Request.UrlReferrer.ToString();
-            }
-            if (!String.IsNullOrEmpty(Request.UserAgent)) {
-                Msg.Body += "\r\nUserAgent: " + Request.UserAgent;
-            }
-            Msg.IsBodyHtml = false;
-
-            System.Net.Mail.SmtpClient Smtp = new System.Net.Mail.SmtpClient("localhost");
-            Smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
-            Smtp.Timeout = 10000;
-            Smtp.Send(Msg);
-
-            Response.StatusCode = 404;
-        } catch {
-            // Ignore
-        }
-    }
-</script>
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -105,3 +76,34 @@
     </script>
 </body>
 </html>
+
+<!-- TODO email
+<%@ Language=C# %>
+
+<script runat="server" language="C#">
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        try {
+            System.Net.Mail.MailMessage Msg = new System.Net.Mail.MailMessage("404@ftelnet.ca", "404@ftelnet.ca");
+            Msg.Subject = "my.ftelnet.ca 404";
+            Msg.Body = "404 on " + Request.Url.AbsoluteUri;
+            if (Request.UrlReferrer != null) {
+                Msg.Body += "\r\nUrlReferrer: " + Request.UrlReferrer.ToString();
+            }
+            if (!String.IsNullOrEmpty(Request.UserAgent)) {
+                Msg.Body += "\r\nUserAgent: " + Request.UserAgent;
+            }
+            Msg.IsBodyHtml = false;
+
+            System.Net.Mail.SmtpClient Smtp = new System.Net.Mail.SmtpClient("localhost");
+            Smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+            Smtp.Timeout = 10000;
+            Smtp.Send(Msg);
+
+            Response.StatusCode = 404;
+        } catch {
+            // Ignore
+        }
+    }
+</script>
+-->

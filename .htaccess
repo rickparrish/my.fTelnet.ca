@@ -1,0 +1,26 @@
+Options +FollowSymLinks  -MultiViews
+
+ErrorDocument 404 /404.php
+
+RewriteEngine on
+RewriteBase /
+
+# prevent redirect loop
+RewriteCond %{ENV:REDIRECT_END}  =1
+RewriteRule ^ - [L,NS]
+
+# redirect index.php and index.html to root of directory
+RewriteRule ^index\.(php|html)$ / [R=301,L]
+RewriteRule ^(.*)/index\.(php|html)$ /$1/ [R=301,L]
+
+# redirect .php and .html to extensionless
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^(.*?)\.(php|html?)$ $1 [R=301,NC,NS]
+
+# rewrite extensionless to .html
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule (.*)$ $1.html [L,E=END:1,NS]
+
+# rewrite extensionless to .php
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule (.*)$ $1.php [L,E=END:1,NS]
