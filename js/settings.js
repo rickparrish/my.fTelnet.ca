@@ -9,18 +9,18 @@ $('#cboProxyServer').change(function () {
 });
 
 function LoadProxyServers() {
-    $.getJSON("//proxy.ftelnet.ca/proxyservers.json", function(data) {
-        data.sort(function (a, b) {
-            var aName = a.Country.toLowerCase() + a.City.toLowerCase();
-            var bName = b.Country.toLowerCase() + b.City.toLowerCase(); 
-            return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0)); 
-        });
+    var cbo = $('#cboProxyServer');
 
-        for (var i = 0; i < data.length; i++) {
-            $('#cboProxyServer').append('<option value="' + data[i].Hostname + ':' + data[i].WsPort + ':' + data[i].WssPort + '">' + data[i].Country + ' (' + data[i].City + ')</option>');
+    $.getJSON('//embed-v2.ftelnet.ca/proxy-servers.json', function(data) {
+        for (key in data) {
+            // Only process if the server has a Hostname property.  Some are only CNAMEs that redirect to real servers, and we don't want to list those
+            var server = data[key];
+            if (server['Hostname']) {
+                cbo.append('<option value="' + server['Hostname'] + ':' + server['WsPort'] + ':' + server['WssPort'] + '">' + server['Country'] + ' (' + server['City'] + ')</option>')
+            }
         }
-        
+
         var Settings = GetSettings();
-        $('#cboProxyServer').val(Settings.ProxyServer);
+        cbo.val(Settings.ProxyServer);
     });
 }
