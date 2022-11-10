@@ -159,11 +159,11 @@ function LoadMyServers() {
             var Proxy = '';
             if (MyServers[i].Proxy) {
                 var HostPorts = GetSettings().ProxyServer.split(':');
-                Proxy += '&Proxy=' + HostPorts[0];
+                Proxy += '&ProxyHostname=' + HostPorts[0];
                 Proxy += '&ProxyPort=' + HostPorts[1];
                 Proxy += '&ProxyPortSecure=' + HostPorts[2];
             }
-            var Url = 'http://embed.ftelnet.ca/?Hostname=' + MyServers[i].Hostname + '&Port=' + MyServers[i].Port.toString() + Proxy + '&AutoConnect=true&ConnectionType=' + MyServers[i].ConnectionType + '&Emulation=' + MyServers[i].Emulation + '&TopButtons=true&VirtualKeyboard=on';
+            var Url = 'http://embed-v2.ftelnet.ca/connect/?ConnectionType=' + MyServers[i].ConnectionType + '&Emulation=' + MyServers[i].Emulation + '&Hostname=' + MyServers[i].Hostname + '&Port=' + MyServers[i].Port.toString() + '&AutoConnect=true' + Proxy
 
             var NewRow = '<tr>';
             NewRow += ' <td>';
